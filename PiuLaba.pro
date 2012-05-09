@@ -4,7 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui declarative
+
+symbian: {
+    qmlfiles.sources = qml/qtquicktest/*.qml
+    qmlfiles.path = ./qml/qtquicktest
+    DEPLOYMENT += qmlfiles
+}
 
 TARGET = PiuLaba
 TEMPLATE = app
@@ -21,4 +27,8 @@ OTHER_FILES += \
     Controls/GreyButton.qml \
     Controls/RecipesModel.qml \
     Controls/TextArea.qml \
-    Controls/TextButton.qml
+    Controls/TextButton.qml \
+    main.qml
+
+RESOURCES += \
+    res.qrc
