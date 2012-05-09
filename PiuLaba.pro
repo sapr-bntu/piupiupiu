@@ -11,6 +11,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    zip.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    zip.h
+
+OTHER_FILES += \
+    Controls/GreyButton.qml
