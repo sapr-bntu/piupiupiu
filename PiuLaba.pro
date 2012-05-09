@@ -18,4 +18,5 @@ HEADERS  += mainwindow.h \
     zip.h
 
 OTHER_FILES += \
-    Controls/GreyButton.qml
+    Controls/GreyButton.qml \
+    Controls/RecipesModel.qml
