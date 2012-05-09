@@ -19,4 +19,6 @@ HEADERS  += mainwindow.h \
 
 OTHER_FILES += \
     Controls/GreyButton.qml \
-    Controls/RecipesModel.qml
+    Controls/RecipesModel.qml \
+    Controls/TextArea.qml \
+    Controls/TextButton.qml
