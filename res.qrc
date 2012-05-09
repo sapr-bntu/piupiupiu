@@ -1,1 +1,21 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>pics/arrow-down.png</file>
+        <file>pics/arrow-up.png</file>
+        <file>pics/list-delete.png</file>
+        <file>pics/lol1.jpg</file>
+        <file>pics/lol2.jpg</file>
+        <file>pics/lol3.jpg</file>
+        <file>pics/lol4.jpg</file>
+        <file>pics/lol5.jpg</file>
+        <file>pics/minus-sign.png</file>
+        <file>pics/moreDown.png</file>
+        <file>pics/moreUp.png</file>
+        <file>pics/plus-sign.png</file>
+        <file>Controls/GreyButton.qml</file>
+        <file>Controls/RecipesModel.qml</file>
+        <file>Controls/TextArea.qml</file>
+        <file>Controls/TextButton.qml</file>
+        <file>main.qml</file>
+    </qresource>
+</RCC>

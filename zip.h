@@ -3,7 +3,7 @@
 #include <QtDeclarative/QDeclarativeView>
 #include <QGraphicsObject>
 #include <QtGui>
-//#include <QDeclarativeContext>
+#include <QDeclarativeContext>
 #ifndef ZIP_H
 #define ZIP_H
 
