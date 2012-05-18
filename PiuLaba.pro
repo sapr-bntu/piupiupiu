@@ -26,22 +26,25 @@ HEADERS  += mainwindow.h \
 OTHER_FILES += \
     Controls/GreyButton.qml \
     Controls/RecipesModel.qml \
-    Controls/TextArea.qml \
     Controls/TextButton.qml \
     main.qml \
-    pics.txt \
-    pics/plus-sign.png \
-    pics/moreUp.png \
-    pics/moreDown.png \
-    pics/minus-sign.png \
     pics/lol5.jpg \
     pics/lol4.jpg \
     pics/lol3.jpg \
     pics/lol2.jpg \
     pics/lol1.jpg \
-    pics/list-delete.png \
-    pics/arrow-up.png \
-    pics/arrow-down.png
+    pics/myicon.png \
+    Controls/IconButtonD.qml \
+    Controls/IconButtonU.qml \
+    pics/up.PNG \
+    pics/down.PNG \
+    pics/sucks.png \
+    pics/sucks.png \
+    Controls/Scroll.qml \
+    pics/scroll.png \
+    pics/endHandle.sci \
+    pics/startHandle.sci \
+    pics/scrollbar.png
 
 RESOURCES += \
     res.qrc
