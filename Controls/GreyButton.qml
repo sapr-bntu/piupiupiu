@@ -4,6 +4,7 @@ Rectangle {
     property alias text: textElement.text
     property string rsGradientStop0: "grey"
     property string rsGradientStop1: "darkgrey"
+
     signal clicked
     id: greyButton
     width: 100
@@ -65,22 +66,22 @@ Rectangle {
         hoverEnabled: true
         onEntered: mouseEnterAnim.start()
         onExited: mouseExitAnim.start()
-        //onClicked: window.FunctionPIU()
         onClicked: greyButton.clicked()
+
     }
 
 
 
 
 
-    states: [
-        State {
-            name: "State1"
-        },
-        State {
-            name: "State2"
-        }
-    ]
+//    states: [
+//        State {
+//            name: "State1"
+//        },
+//        State {
+//            name: "State2"
+//        }
+//    ]
 
 
 }
