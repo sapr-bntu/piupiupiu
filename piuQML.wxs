@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="17013810-3d62-474e-a1b4-6592eca215eb" Name="piuQML" Language="1033" Version="1.0.0.0" Manufacturer="piuQML" UpgradeCode="12992e0f-c369-4c47-b199-554a2aa471aa">
+		<Package InstallerVersion="200" Compressed="yes" />
+
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+    <!--<WixVariable Id="WixUILicenseRtf" Value="D:\QMLInst\license.rtf" />
+    <Property Id="WIXUI_INSTALLDIR" Value="ProgramFilesFolder" />
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />-->
+    
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLLOCATION" Name="piuQML">
+					<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+					 <Component Id="ProductComponent" Guid="2f2735b1-df98-4da9-8b8a-bc538717bffc"> 
+						<!-- TODO: Insert files, registry keys, and other resources here. -->
+             <File Id="ViewerUI" Source="D:\PiuLaba.exe"/>
+             <File Id="QtCore" Source="D:\QtCore4.dll"/>
+             <File Id="QtGui" Source="D:\QtGui4.dll"/>
+             <File Id="QtSql" Source="D:\QtSql4.dll"/>
+             <File Id="QtDeclarative" Source="D:\QtDeclarative4.dll"/>
+             <File Id="QtNetwork" Source="D:\QtNetwork4.dll"/>
+             <File Id="QtScript" Source="D:\QtScript4.dll"/>
+             <File Id="QtXmlPatterns" Source="D:\QtXmlPatterns4.dll"/>
+             <File Id="MINGWM100" Source="D:\mingwm10.dll"/>
+             <File Id="LIBGCC" Source="D:\libgcc_s_dw2-1.dll"/>
+
+
+             <Shortcut  Id="DesktopShortcut" Directory="DesktopFolder" Advertise="yes" Name="CHMViewer" Icon="CHMViewer.exe" WorkingDirectory="INSTALLLOCATION" >
+               <Icon Id="CHMViewer.exe" SourceFile="D:\piu.ico" />
+             </Shortcut>
+             
+					 </Component> 
+				</Directory>
+			</Directory>
+		</Directory>
+
+		<Feature Id="ProductFeature" Title="piuQML" Level="1">
+			<!-- TODO: Remove the comments around this ComponentRef element and the Component above in order to add resources to this installer. -->
+			<!-- <ComponentRef Id="ProductComponent" /> -->
+
+			<!-- Note: The following ComponentGroupRef is required to pull in generated authoring from project references. -->
+			<!--<ComponentGroupRef Id="Product.Generated" />-->
+      <ComponentRef Id="ProductComponent" />
+		</Feature>
+	</Product>
+</Wix>

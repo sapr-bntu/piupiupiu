@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="41a0aa62-e2be-43a8-ba8b-6e8362b54ac7" Name="PiuQt" Language="1033" Version="1.0.0.0" Manufacturer="PiuQt" UpgradeCode="bf94f43d-c9ca-4280-a5c4-e95a24f13eb7">
+    <Package InstallerVersion="200" Compressed="yes" />
+
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+
+
+    <!--<WixVariable Id="WixUILicenseRtf" Value="D:\license.rtf" />
+    <Property Id="WIXUI_INSTALLDIR" Value="ProgramFilesFolder" />
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />-->
+
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="PiuQt">
+
+          <!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+          <Component Id="ProductComponent" Guid="fba1f89f-ffb0-48e6-9f30-9addbeca6572">
+
+            <File Id="OloloViewerUI" Source="D:\ololol111.exe"/>
+            <File Id="QtCore" Source="D:\QtCore4.dll"/>
+            <File Id="QtGui" Source="D:\QtGui4.dll"/>
+            <File Id="MSVCP100" Source="D:\msvcp100.dll"/>
+            <File Id="MSVCR100" Source="D:\msvcr100.dll"/>
+
+            <Shortcut  Id="DesktopShortcut" Directory="DesktopFolder" Advertise="yes" Name="PiuQt" Icon="PiuQt.exe" WorkingDirectory="INSTALLLOCATION" >
+              <Icon Id="PiuQt.exe" SourceFile="D:\piu.ico" />
+            </Shortcut>
+
+          </Component>
+
+
+
+        </Directory>
+      </Directory>
+    </Directory>
+
+
+
+    <Feature Id="ProductFeature" Title="PiuQt" Level="1">
+      <!-- TODO: Remove the comments around this ComponentRef element and the Component above in order to add resources to this installer. -->
+      <!-- <ComponentRef Id="ProductComponent" /> -->
+
+      <!-- Note: The following ComponentGroupRef is required to pull in generated authoring from project references. -->
+      <!--<ComponentGroupRef Id="Product.Generated" />-->
+      <ComponentRef Id="ProductComponent" />
+      <!--<ComponentGroupRef Id="Product.Generated" />-->
+
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" > </Property>
+    <WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="D:\License.rtf"/>
+    <!--<UIRef Id="WixUI_InstallDir" />-->
+    
+   
+
+  </Product>
+</Wix>
