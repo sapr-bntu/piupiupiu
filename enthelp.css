@@ -1,0 +1,410 @@
+/*****************************************
+*			ENTERPRISE CSS					*
+*****************************************/
+
+body
+	{ 
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	margin-left: 34px;
+	cursor: auto;
+	}
+
+p
+	{
+	clear: right;
+	}
+
+span.guimenuitem
+	{
+	font-weight: bold;
+	}
+
+a span.guimenuitem
+        {
+        font-weight: normal;
+        }
+
+span.guilabel
+	{
+	font-weight: bold;
+	}
+
+a span.guilabel
+        {
+        font-weight: normal;
+        }
+	
+span.command
+	{
+	font-family:"Courier New", Courier, mono;
+	}
+		
+	
+	
+/*==========================================
+/  LIST ELEMENTS (items, titles, intro's)  /
+==========================================*/
+
+.highlights li, .toc li
+	{
+	color: #0000FF;
+	}
+
+ul
+	{
+	margin-top: 24px;
+	}
+	
+ul li
+	{
+	margin-left: -22px;
+	}
+	
+ol li	
+	{
+	margin-left: -8px;
+	}
+	
+ul li p, ol li p, .toc dl dt, ul li
+	{
+	margin-top: 12px;
+	margin-bottom: 12px;
+	}
+		
+div.informaltable p, div.simple p
+	{
+	margin-top: 1px;
+	margin-bottom: 3px;
+	}
+
+.itemizedlist p.title
+	{
+	color: #000000;
+	font-weight: normal;
+/*	position: relative;
+	top: -4px;		*/
+	}
+
+.procedure .title
+	{
+	color: #000000;
+	font-weight: bold;
+	}
+	
+.steplistitem_cont
+	{
+	position: relative;
+	top: -6px;
+	bottom: -2px;
+	}
+
+/* Specifies special bullet for single-step procedures. */
+
+.procedure ul
+{
+list-style-type: none;
+padding: 0;
+margin-left: 1.8em;
+}
+
+.procedure ul li
+{
+background-image: url(images/ssp.png);
+background-repeat: no-repeat;
+background-position: 0 .2em;
+padding-left: 2em;
+}
+
+/* Returns to normal bullets for itemized lists within procedures*/
+.procedure .itemizedlist ul 
+{
+list-style-type: disc;
+padding: 0;
+margin-top: 12px;
+}
+	
+.procedure .itemizedlist ul li
+{
+background-image: none;
+/*background-position: none;*/
+padding-left: .2em;
+margin-left: -5px;
+}
+
+/*==========================================
+/  			HEADING & INTRO PARA'S			  /
+==========================================*/
+
+h1, h2, h3, h4, h5, h6
+	{
+    color: #000000;
+    font-size: 14px;
+    text-align: left;
+    text-indent: none;
+    margin-left: 0px;
+	}
+
+h5, h6
+	{
+    color: #000000;
+    font-size: 12px;
+    text-align: left;
+    text-indent: none;
+    margin-left: 0px;
+	}
+
+h2.subtitle
+  {
+    color: #0000FF;
+    font-size: 12px;
+    text-align: left;
+    text-indent: none;
+    margin-left: 0px;
+    margin-top: -12px;
+    margin-bottom: 16px;
+  }
+
+div.toc p, div.highlights div
+  {
+    margin-bottom: -8px;
+  }
+
+div.figure p.title, div.grid p.title, div.rowline p.title, div.gridwide p.title
+	{
+    color: #000000;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 11px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    text-align: left
+    }
+
+div.moreinfo p.title
+	{
+    color: #000000;
+    font-family: Verdana, Arial, Helvetica, sans-serif;     
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 33px;
+    margin-bottom: 5px;
+    text-align: left;
+    text-indent: 0px;
+    }
+
+p.ref
+  {
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0.5em;
+  text-align: left;
+  text-indent: 0px;
+  white-space: normal;
+  line-height: 12pt;
+  }
+
+div.section div.itemizedlist p.title
+	{
+    margin-bottom: -10px;
+	margin-top: 10px;
+	font-weight: normal;
+    }
+
+div.section div.figure p.title
+	{
+    margin-top: 18px;
+	font-weight: bold;
+    }
+
+div.figure p
+	{
+    margin-bottom: 11px ! important;
+    }
+
+
+/*==========================================
+              TABLES
+==========================================*/
+
+  
+div.complex table.complex td
+ {
+ border-collapse: collapse;
+ border: 2px solid #98989C;   
+ }
+ 
+table
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;     
+  font-size: 12px;
+  border-collapse: collapse;
+  }
+  
+div.complex table.complex
+{
+ border: 2px solid #98989C;  
+ }
+
+
+ 
+ table.complex tr.complexodd {
+ background-color:#F1F1F1;
+ border-collapse: collapse;
+ }
+ 
+ tr {
+   border-collapse: collapse;
+   }
+
+table.complex th
+ {
+  border: 2px solid #98989C; 
+  border-collapse: collapse;
+  color: Black;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 0em;
+  margin-left: 0em;
+  margin-right: 0em;
+  margin-top: 0em;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0em;
+  text-transform: none;
+  background-color: #CFDEF5;
+  vertical-align: top;
+}
+
+
+div.complex p.title
+{
+  color: #000000;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+  
+.noline table
+	{
+	margin-left: 0px;
+	bottom: 14px;
+	}
+  
+div.informaltable table, div.simple table, div.section div.procedure div.noline table
+  {
+  font-size: 12px;
+  margin-left: -14px;
+  margin-bottom: 8px;
+  border-width: 0px;
+  }  
+
+div.section div.noline table, div.section div.rowline table 
+  {
+  margin-top: 20px;
+  }
+
+div.noline table td p
+	{
+	margin-left: 0px;
+	}
+
+td.empty
+	{
+	font-size:1px;
+	color:#000000;
+	}
+
+td p
+	{
+	margin-top: 1px;
+	margin-bottom: 3px;
+	}
+
+thead p
+	{
+	margin-top: 1px;
+	margin-bottom: 3px;
+	font-weight: bold;
+	text-align: left;
+	}
+
+td
+	{
+	padding-bottom: 0px;
+	border-width: 0px;
+	}
+		
+/*==========================================
+             NOTES & WARNINGS             
+==========================================*/
+
+.note b, .warning b
+  	{
+  	float: left;
+  	margin-left: 0px;
+   }
+
+p.notetext{
+font-weight: bold;	
+}
+
+
+div.informaltable table, div.simple table, div.section div.procedure div.noline table.note
+  {
+  font-size: 12px;
+  margin-left: 0px;
+  border-width: 0px;
+  }  
+  
+div.section div.complex table.complex table.note,  div.section div.complex table.complex table.note td
+{
+border-width: 0px;
+}
+
+/*==========================================
+               DOCUMENT DEFAULTS
+==========================================*/
+
+a:active, a:hover, a:link, a:visited
+{
+color: #0000FF;
+text-decoration: underline;
+}
+
+/*
+a:hover
+{
+color: #0000FF;
+text-decoration: underline;
+}
+
+a:link
+{
+color: #0000FF;
+text-decoration: underline;
+}
+
+a:visited
+{
+color: #0000FF;
+text-decoration: underline;
+}
+*/

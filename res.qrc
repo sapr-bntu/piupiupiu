@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/zip">
+        <file>7z.exe</file>
+        <file>7z.dll</file>
+        <file>piu.bmp</file>
+    </qresource>
+</RCC>
