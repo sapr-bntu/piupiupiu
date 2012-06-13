@@ -16,17 +16,7 @@ Rectangle {
        scale: 0.4
             }
 
-//    IconButtonU {
-//            id:iconButtU
-//            x:500
-//            y:310
-//                 }
 
-//    IconButtonD {
-//            id:iconButtD
-//            x:500
-//            y:420
-//                 }
 
     GreyButton {
         id: mgreybutton8
@@ -39,18 +29,6 @@ Rectangle {
                }
     }
 
-//    GreyButton {
-//        id: mgreybutton9
-//        x:515
-//        y:350
-//        text: "test"
-//        onClicked:{
-//            edit.text = window.FunctionOPEN();
-//            console.log("ata-ta")
-
-
-//               }
-//    }
 
     GreyButton {
         id: mgreybutton1
@@ -58,7 +36,7 @@ Rectangle {
         y:310
         text: "Unzip *.chm"
         onClicked:{
-            window.FunctionPIU()
+         //   window.FunctionPIU()
             console.log("ata-ta")
             edit.text = window.FunctionOPEN();
 

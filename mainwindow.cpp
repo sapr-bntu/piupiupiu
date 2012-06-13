@@ -14,6 +14,31 @@
 #include  <QDeclarativeView>
 #include <QFile>
 #include <QTextCodec>
+#include <QAction>
+#include <QApplication>
+#include <QClipboard>
+#include <QColorDialog>
+#include <QComboBox>
+#include <QFontComboBox>
+#include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QFontDatabase>
+#include <QMenu>
+#include <QMenuBar>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QTextCodec>
+#include <QTextEdit>
+#include <QToolBar>
+#include <QTextCursor>
+#include <QTextDocumentWriter>
+#include <QTextList>
+#include <QtDebug>
+#include <QCloseEvent>
+#include <QMessageBox>
+#include <QPrintPreviewDialog>
+#include <QProcess>
 
 
 
@@ -26,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setSource(QUrl("qrc:/main.qml"));
     setCentralWidget(ui);
     ui->setResizeMode(QDeclarativeView::SizeRootObjectToView);
+
 
     //Находим корневой элемент
     Root = ui->rootObject();
@@ -47,7 +73,7 @@ MainWindow::~MainWindow()
 }
 
 
-QString MainWindow::FunctionPIUPIU()
+bool MainWindow:: FunctionPIUPIU()
 {
 
    // QFileSystemModel *model = new QFileSystemModel;
@@ -65,12 +91,13 @@ QString MainWindow::FunctionPIUPIU()
    // piulist<<"*.htm";
 
     piulist = piudir.entryList(piu);
-    return piulist.join("|");
+   // return piulist.join("|");
+    return true;
 
 
 }
 
-void MainWindow::FunctionPIUPIUPIU()
+bool MainWindow::FunctionPIUPIUPIU()
 {
 
 
@@ -91,7 +118,7 @@ void MainWindow::FunctionPIUPIUPIU()
   {
            QFile(piulist[i]).remove();
   }
-
+return true;
 
 }
 
@@ -102,7 +129,7 @@ QString MainWindow::FunctionOPEN()
 
 
 
-
+//возвращаем имя файла
 //    QStringList filesList;
 //        QString dir("C:\\tmp\\PiuLaba\\");
 //      QDir directory = QDir(dir);
@@ -117,52 +144,96 @@ QString MainWindow::FunctionOPEN()
 //      // Return file name
 //      return filesList.at(fileIdx);
 
-//    QFile file("piu.htm");
-//    file.open(QFile::WriteOnly);
+  //возращает путь к файлу
+ //======================================================================
+//   QString fileName = QFileDialog::getOpenFileName(this,
+//            tr("Open"), "", tr("Files (*.txt *.htm *.xml *.chm)"));
+//    QFile file(fileName);
+
+//   // QFile file("piu.htm");
+//   // file.open(QFile::WriteOnly);
 //    // сохраняем даные в файл
-//    file.close();
+//    //   file.close();
 //    // получаем абсолютный путь к файлу
 //    QFileInfo info(file);
 //   QString filepath = info.absoluteFilePath();
-
-       QStringList filesList;
-       QString dir("C:\\tmp\\PiuLaba\\");
-       QDir directory = QDir(dir);
-       QStringList filters;
-       filters << "*.htm";
-       directory.setNameFilters(filters);
-       filesList = directory.entryList(QDir::AllEntries);
+//   return filepath;
+   //==================================================================================
 
 
-    QByteArray list;
+//=====================================================================
+//       QStringList filesList;
+//       QString dir("C:\\tmp\\PiuLaba\\");
+//       QDir directory = QDir(dir);
+//       QStringList filters;
+//       filters << "*.htm";
+//       directory.setNameFilters(filters);
+//       filesList = directory.entryList(QDir::AllEntries);
+
+
+//    QByteArray list;
+//// v skobah ukazat nomer elementa htm'ok 1,2,3..
+//    QFile file(filesList[0]);
+
+
+
+//      if (file.open(QIODevice::ReadOnly|QIODevice::Text))
+//      {
+//           QTextCodec *codec = Qt::codecForHtml(list);
+//           QString str = codec->toUnicode(list);
+
+//           list = file.readAll();
+//      }
+
+//return list;
+
+//=============================================================================
+
+
+   QStringList filesList;
+  // QString dir("C:\\tmp\\PiuLaba\\");
+   QString dir("../PiuLaba(Brandy)/");
+   QDir directory = QDir(dir);
+   QStringList filters;
+   filters << "*.htm";
+   directory.setNameFilters(filters);
+   filesList = directory.entryList(QDir::AllEntries);
+
+
+QByteArray list;
 // v skobah ukazat nomer elementa htm'ok 1,2,3..
-    QFile file(filesList[0]);
+QFile file(filesList[0]);
 
 
-   // QFile file(filesList[i]);
-     // QFile file("acl_con_use.htm");
+// QFile file(filesList[i]);
+ // QFile file("acl_con_use.htm");
 
-      if (file.open(QIODevice::ReadOnly|QIODevice::Text))
-      {
-           QTextCodec *codec = Qt::codecForHtml(list);
-           QString str = codec->toUnicode(list);
+  if (file.open(QIODevice::ReadOnly|QIODevice::Text))
+  {
 
-           list = file.readAll();
-      }
+       QTextCodec *codec = Qt::codecForHtml(list);
+       QString str = codec->toUnicode(list);
+
+       list = file.readAll();
+
+  }
 
 return list;
-
 }
 
-void MainWindow::FunctionPIU()
+
+
+
+
+bool MainWindow::FunctionPIU()
 {
 
     QString fileName = QFileDialog::getOpenFileName(this,
             tr("Open"), "", tr("Files (*.txt *.htm *.xml *.chm)"));
     QFile file(fileName);
 
-//         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-//             return;
+         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+             return false;
          zip mzip;
 
          QDir dir(".");
@@ -176,13 +247,16 @@ void MainWindow::FunctionPIU()
         QTextStream in(&file);
         QString line = in.readAll();
 
+
+
   // ui->textEdit->setText(line);
+        return true;
 
 
 
 }
 
-QString MainWindow::FunctionMDE()
+bool MainWindow::FunctionMDE()
 {
 
 
@@ -191,12 +265,13 @@ QString MainWindow::FunctionMDE()
 
     QString text = "";
     if (!fn.isEmpty())
+        return false;
       text = load(fn);
-    return text;
+    return true;
 }
 
 
-QString MainWindow::load(const QString &f)
+bool MainWindow::load(const QString &f)
 {
     if (!QFile::exists(f))
         return false;
@@ -210,7 +285,7 @@ QString MainWindow::load(const QString &f)
  // QString str = codec->toUnicode(data);
 QString str = data;
 
-    return str;
+    return true;
 }
 
 
@@ -263,4 +338,83 @@ QFile file(fileName);
 
 
 }
+
+bool MainWindow::piupiuEx()
+{
+    QApplication::exit();
+    return true;
+
+}
+
+bool MainWindow::maybeSave()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save"), "", tr("Htm files (*.htm )"));
+//    if (!textEdit->document()->isModified())
+//        return true;
+    if (fileName.startsWith(QLatin1String(":/")))
+        return true;
+    QMessageBox::StandardButton ret;
+    ret = QMessageBox::warning(this, tr("Application"),
+                               tr("The document has been modified.\n"
+                                  "Do you want to save your changes?"),
+                               QMessageBox::Save | QMessageBox::Discard
+                               | QMessageBox::Cancel);
+   // if (ret == QMessageBox::Save)
+      //  return fileSave();
+   // else if (ret == QMessageBox::Cancel)
+    //    return false;
+    return false;
+}
+
+bool MainWindow::fileNew()
+{
+    if (maybeSave()) {
+        textEdit->clear();
+               return true;
+    }
+    return false;
+}
+
+
+
+bool MainWindow::textFamily()
+{
+    QString f;
+    QTextCharFormat fmt;
+    fmt.setFontFamily(f);
+
+    return true;
+}
+
+bool MainWindow::textSize()
+{
+    QString p;
+    qreal pointSize = p.toFloat();
+    if (p.toFloat() > 0) {
+        QTextCharFormat fmt;
+        fmt.setFontPointSize(pointSize);
+        return true;
+    }
+    return false;
+}
+
+bool MainWindow::setText()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Enter your label"),
+                                         tr("Your label°:"), QLineEdit::Normal,
+                                         QDir::home().dirName(), &ok);
+    if (ok && !text.isEmpty())
+       return true;
+//     textLabel->setText();
+    else return false;
+}
+
+
+
+
+
+
+
+
 
