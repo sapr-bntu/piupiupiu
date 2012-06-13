@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pics/endHandle.sci</file>
+        <file>pics/lol1.jpg</file>
+        <file>pics/lol2.jpg</file>
+        <file>pics/lol3.jpg</file>
+        <file>pics/lol4.jpg</file>
+        <file>pics/lol5.jpg</file>
+        <file>pics/scroll.png</file>
+        <file>pics/scrollbar.png</file>
+        <file>pics/startHandle.sci</file>
+        <file>qml/QMLLab/GreyButton.qml</file>
+        <file>qml/QMLLab/main.qml</file>
+        <file>qml/QMLLab/RecipesModel.qml</file>
+        <file>qml/QMLLab/Scroll.qml</file>
+        <file>qml/QMLLab/TextButton.qml</file>
+        <file>7z.dll</file>
+        <file>7z.exe</file>
+    </qresource>
+</RCC>
