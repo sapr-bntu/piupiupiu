@@ -34,22 +34,29 @@ private slots:
 
 
 public slots :
-        void open();
+        bool open();
         bool exitMW();
-        void savik();
+       bool savik();
        bool clearik();
-        void delitik();
+        bool delitik();
         void on_treeView_clicked(const QModelIndex &index);
         bool setText();
         bool about();
         bool aboutpiu();
+        bool retStr();
+        bool somethingWrong();
+        bool ItsOk();
+       bool clearView();
+       bool clearEdit2();
+
+
 
 
 
 
 public:
 
-     void saveFile(const QString &fileName);
+     bool  saveFile(const QString &fileName);
 
 
 public:

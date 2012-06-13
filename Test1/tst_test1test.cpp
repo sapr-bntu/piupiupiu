@@ -2,8 +2,8 @@
 #include <QtTest/QtTest>
 #include <QtCore>
 #include <QtTest>
-#include <D:/piu(QT)/zip.h>
-#include <D:/piu(QT)/mainwindow.h>
+#include "../zip.h"
+#include "../mainwindow.h"
 #include <QtGui>
 #include <QLineEdit>
 #include <QtCore/QCoreApplication>
@@ -23,8 +23,6 @@ public:
     
 private Q_SLOTS:
     void initTestCase();
-
-    void testCase0();
     void testCase1();
     void testCase2();
     void testCase3();
@@ -35,7 +33,11 @@ private Q_SLOTS:
     void testCase8();
     void testCase9();
     void testCase10();
-     void testCase11();
+    void testCase11();
+    void testCase12();
+    void testCase13();
+    void testCase14();
+    void testCase15();
     void cleanupTestCase();
 
 };
@@ -51,16 +53,12 @@ void Test1Test::cleanupTestCase()
 {
 }
 
-void Test1Test::testCase0()
-{
-    QVERIFY2(true, "Failure");
-}
 void Test1Test::testCase1()
 {
     bool alpha;
     zip piu;
 
-    alpha =  piu.unzip("D:/piu(QT)/ClientHelp.chm");
+    alpha =  piu.unzip("../ClientHelp.chm");
 
     QVERIFY2(alpha, "Failure");
 
@@ -70,7 +68,7 @@ void Test1Test::testCase2()
     bool alpha;
     zip piu;
 
-    alpha =  piu.zipdir("D:/piu(QT)/piu.htm");
+    alpha =  piu.zipdir("../piu.htm");
 
     QVERIFY2(alpha, "Failure");
 
@@ -79,22 +77,17 @@ void Test1Test::testCase2()
 void Test1Test::testCase3()
 {
 
-    QLineEdit txt;
-    QTest::keyClicks(&txt, "AKA");
-
-   QCOMPARE(txt.text(), QString("AKA"));
-    QVERIFY(txt.isModified());
-
-
+MainWindow main;
+bool flag = main.ItsOk();
+QCOMPARE(flag, true);
 
 }
 
 void Test1Test::testCase4()
 {
-   QLineEdit lineEdit;
-    QTest::keyClicks(&lineEdit, "piu");
-    bool flag = false;
-    QCOMPARE(flag,true);
+    MainWindow main;
+    bool flag = main.somethingWrong();
+    QCOMPARE(flag, true);
 }
 
 
@@ -124,11 +117,10 @@ void Test1Test::testCase6()
 void Test1Test::testCase7()
 
 {
+    MainWindow mw;
+    bool flag = mw.retStr();
+    QCOMPARE(true, flag);
 
-    QLineEdit lineEdit;
-     QTest::keyClicks(&lineEdit, "piupiupiu");
-     bool flag = true;
-     QCOMPARE(flag,true);
 
 }
 
@@ -157,25 +149,60 @@ QCOMPARE(flag, true);
 void Test1Test::testCase10()
 
 {
-
-    QLineEdit lineEdit_2;
-     QTest::keyClicks(&lineEdit_2, "blablabla");
-     bool flag = true;
-     QCOMPARE(flag,true);
+MainWindow mainw;
+bool flag = mainw.clearView();
+QCOMPARE(flag, true);
 
 }
 
 void Test1Test::testCase11()
 
 {
-
-   MainWindow mw;
-   bool flag = mw.setText();
-   QCOMPARE(flag, true);
+    MainWindow mw;
+    bool  flag = mw.saveFile("e:/1.htm");
+      QCOMPARE(flag, true);
 
 }
 
 
+void Test1Test::testCase12()
+
+{
+    MainWindow mw;
+     bool  flag = mw.savik();
+      QCOMPARE(flag, true);
+
+
+}
+
+
+void Test1Test::testCase13()
+
+{
+ MainWindow mw;
+  bool  flag = mw.open();
+   QCOMPARE(flag, true);
+
+}
+
+void Test1Test::testCase14()
+
+{
+
+   MainWindow mw;
+   bool flag = mw.clearEdit2();
+   QCOMPARE(flag, true);
+
+}
+void Test1Test::testCase15()
+
+{
+
+   MainWindow mw;
+   bool flag = mw.delitik();
+   QCOMPARE(flag, true);
+
+}
 
 
 QTEST_MAIN(Test1Test)

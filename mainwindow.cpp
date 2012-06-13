@@ -92,6 +92,10 @@ bool MainWindow::clearik()
 
 {
 ui->lineEdit->clear();
+if (ui->lineEdit->isModified())
+return true;
+
+else return false;
 
 
 }
@@ -102,9 +106,13 @@ bool MainWindow::setText()
     QString text = QInputDialog::getText(this, tr("Enter your label"),
                                          tr("Your label°:"), QLineEdit::Normal,
                                          QDir::home().dirName(), &ok);
+    if (text.isEmpty())
+        return false;
+
     if (ok && !text.isEmpty())
         ui->lineEdit_2->setText(text);
-//     textLabel->setText();
+    return true;
+
 }
 
 
@@ -114,6 +122,7 @@ bool MainWindow::about()
 {
     QMessageBox::about(this, tr("About Project"),
             tr("<p><b>CHM viewer v.1.0</p></b>"));
+    return true;
 }
 
 
@@ -132,6 +141,8 @@ bool MainWindow::aboutpiu()
                        "<p><b>Project Manager:</p></b>"
                        "<p>Galko A.V.      ->g-ferz</p>"));
 
+      return true;
+
 
 
 
@@ -142,10 +153,11 @@ bool MainWindow::aboutpiu()
 bool MainWindow::exitMW()
  {
     QApplication::exit();
-    return true;
+return true;
+
  }
 
-void MainWindow::savik()
+bool MainWindow::savik()
 {
 // save into 1.htm
 //   QFile file("1.htm");
@@ -157,33 +169,33 @@ void MainWindow::savik()
  //save po viboru
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save"), "", tr("Files (*.htm )"));
         if (fileName.isEmpty())
-            return;
+            return false;
 
         saveFile(fileName);
+        return true;
 }
 
-void MainWindow::delitik()
+bool MainWindow::delitik()
 
 {
-
-
-
     QString dir("../piu(QT)/");
 
 
     QStringList piu ;
     piu<<"*.htm";
-
-
  QDir piudir(dir);
 
          QStringList piulist;
            piulist = piudir.entryList(piu);
 
+           if (piulist.isEmpty())
+               return false;
+
            for (int i = 0; i < piulist.size(); ++i)
   {
            QFile(piulist[i]).remove();
   }
+           return true;
 
 
 
@@ -194,7 +206,7 @@ void MainWindow::delitik()
 
 
 
- void MainWindow::saveFile(const QString &fileName)
+bool MainWindow::saveFile(const QString &fileName)
 {
 
      QFile file(fileName);
@@ -205,8 +217,10 @@ void MainWindow::delitik()
                                    tr("Cannot write file %1:\n%2.")
                                    .arg(fileName)
                                    .arg(file.errorString()));
-              return;
+              return false;
           }
+
+
 
 
 
@@ -217,18 +231,20 @@ void MainWindow::delitik()
 
                  statusBar()->showMessage(tr("File saved"), 2000);
 
+               return true;
+
 
  }
 
 
-void MainWindow::open()
+bool MainWindow::open()
 {
  QString fileName = QFileDialog::getOpenFileName(this,
          tr("Open"), "", tr("Files (*.txt *.htm *.xml *.chm)"));
  QFile file(fileName);
 
       if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-          return;
+           return false;
       zip mzip;
 
       QDir dir(".");
@@ -243,6 +259,7 @@ void MainWindow::open()
      QString line = in.readAll();
 
 ui->textEdit->setText(line);
+return true;
 }
 
 void MainWindow::on_treeView_clicked(const QModelIndex &index)
@@ -263,3 +280,76 @@ QString str = in.readAll();
 
 
 }
+
+bool MainWindow:: retStr()
+{
+
+
+
+    QString dir("..\\");
+
+
+    QStringList piu ;
+    piu<<"*.htm";
+
+
+    QDir piudir(dir);
+    QStringList piulist;
+   // piulist<<"*.htm";
+
+    piulist = piudir.entryList(piu);
+   // return piulist.join("|");
+    if (piulist.isEmpty())
+        return false;
+    else
+            return true;
+
+
+}
+bool MainWindow::somethingWrong()
+{
+   QMessageBox::about(this, tr("About Coders"),
+                        tr("<p> <b>CHM viewer v.1.0 </b> </p>"
+                           "<p>-------------------------------</p>"
+                           "<p><b>If you can read this text</b>"
+                           "<p>You are pretty smart</p>"
+                           "<p>It's useless window</p>"
+                           "<p>But we needs tests</p>"
+                           "<p>Goodbye</p>"));
+
+
+
+          return true;
+
+
+}
+bool MainWindow::ItsOk()
+{
+    QMessageBox::about(this, tr("About Coders"),
+                        tr("<p> <b>USELESS TEST FOR USELESS QT </b> </p>"));
+
+             return true;
+}
+
+
+bool MainWindow::clearView()
+{
+     ui->treeView->close();
+
+     if (ui->treeView->isHidden())
+            return true;
+     return false;
+
+}
+
+bool MainWindow::clearEdit2()
+{
+     ui->lineEdit_2->close();
+
+     if (ui->lineEdit_2->isModified())
+            return true;
+     return false;
+
+}
+
+

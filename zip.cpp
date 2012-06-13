@@ -14,6 +14,7 @@ bool zip::zipdir(QString dirname)
         QProcess *zipProcess = new QProcess();
         zipProcess->start(program);
     }
+    else return false;
     return true;
 }
 bool zip::unzip(QString filename)

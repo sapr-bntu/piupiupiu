@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sun 3. Jun 15:48:46 2012
+** Created: Thu 14. Jun 01:23:44 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -31,24 +31,31 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      12,   11,   11,   11, 0x0a,
-      24,   11,   19,   11, 0x0a,
-      33,   11,   11,   11, 0x0a,
-      41,   11,   19,   11, 0x0a,
-      51,   11,   11,   11, 0x0a,
+      17,   11,   12,   11, 0x0a,
+      24,   11,   12,   11, 0x0a,
+      33,   11,   12,   11, 0x0a,
+      41,   11,   12,   11, 0x0a,
+      51,   11,   12,   11, 0x0a,
       67,   61,   11,   11, 0x0a,
-     100,   11,   19,   11, 0x0a,
-     110,   11,   19,   11, 0x0a,
-     118,   11,   19,   11, 0x0a,
+     100,   11,   12,   11, 0x0a,
+     110,   11,   12,   11, 0x0a,
+     118,   11,   12,   11, 0x0a,
+     129,   11,   12,   11, 0x0a,
+     138,   11,   12,   11, 0x0a,
+     155,   11,   12,   11, 0x0a,
+     163,   11,   12,   11, 0x0a,
+     175,   11,   12,   11, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0open()\0bool\0exitMW()\0"
+    "MainWindow\0\0bool\0open()\0exitMW()\0"
     "savik()\0clearik()\0delitik()\0index\0"
     "on_treeView_clicked(QModelIndex)\0"
-    "setText()\0about()\0aboutpiu()\0"
+    "setText()\0about()\0aboutpiu()\0retStr()\0"
+    "somethingWrong()\0ItsOk()\0clearView()\0"
+    "clearEdit2()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,19 +64,32 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_ASSERT(staticMetaObject.cast(_o));
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->open(); break;
+        case 0: { bool _r = _t->open();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 1: { bool _r = _t->exitMW();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 2: _t->savik(); break;
+        case 2: { bool _r = _t->savik();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 3: { bool _r = _t->clearik();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 4: _t->delitik(); break;
+        case 4: { bool _r = _t->delitik();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 5: _t->on_treeView_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 6: { bool _r = _t->setText();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 7: { bool _r = _t->about();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 8: { bool _r = _t->aboutpiu();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 9: { bool _r = _t->retStr();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 10: { bool _r = _t->somethingWrong();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 11: { bool _r = _t->ItsOk();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 12: { bool _r = _t->clearView();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 13: { bool _r = _t->clearEdit2();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         default: ;
         }
@@ -108,9 +128,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 14;
     }
     return _id;
 }
