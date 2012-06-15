@@ -2,8 +2,10 @@ import QtQuick 1.0
 
 Rectangle {
     property alias text: textElement.text
-    property string rsGradientStop0: "grey"
+    property string rsGradientStop0: "Black"
     property string rsGradientStop1: "darkgrey"
+    property string rsGradientStop2: "red"
+
     signal clicked
     id: greyButton
     width: 100
@@ -19,6 +21,11 @@ Rectangle {
             id: gradientStop1
             position: 1
             color: rsGradientStop1
+        }
+        GradientStop {
+            id: gradientStop2
+            position: 2
+            color: rsGradientStop2
         }
     }
     Text {
@@ -59,28 +66,45 @@ Rectangle {
             duration: 300
         }
     }
+
+    ParallelAnimation {
+        id: mouseClickAnim
+        PropertyAnimation {
+            target: gradientStop2
+            properties: "color"
+            to: rsGradientStop1
+            duration: 50
+        }
+        PropertyAnimation {
+            target: gradientStop1
+            properties: "color"
+            to: rsGradientStop2
+            duration: 50
+        }
+    }
+        ParallelAnimation {
+            id: mouseNoClickAnim
+            PropertyAnimation {
+                target: gradientStop0
+                properties: "color"
+                to: rsGradientStop0
+                duration: 50
+            }
+            PropertyAnimation {
+                target: gradientStop1
+                properties: "color"
+                to: rsGradientStop1
+                duration: 50
+            }
+        }
     MouseArea {
         id: mouse
         anchors.fill: greyButton
         hoverEnabled: true
         onEntered: mouseEnterAnim.start()
         onExited: mouseExitAnim.start()
-        //onClicked: window.FunctionPIU()
+        onPressed: mouseClickAnim.start()
+        onReleased: mouseNoClickAnim.start()
         onClicked: greyButton.clicked()
     }
-
-
-
-
-
-    states: [
-        State {
-            name: "State1"
-        },
-        State {
-            name: "State2"
-        }
-    ]
-
-
 }

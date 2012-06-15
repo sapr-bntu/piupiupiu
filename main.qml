@@ -2,183 +2,284 @@ import QtQuick 1.1
 import Qt 4.7
 import "Controls"
 
-
-
 Rectangle {
     id: rectangle1
     width: 800
     height: 640
     color: "#FF4E4E4E"
 
+    Image {
+        x:515
+        y:430
+        id: imgtrue
+        source: "pics/sucks.png"
+       scale: 0.4
+            }
+
+//    IconButtonU {
+//            id:iconButtU
+//            x:500
+//            y:310
+//                 }
+
+//    IconButtonD {
+//            id:iconButtD
+//            x:500
+//            y:420
+//                 }
+
+    GreyButton {
+        id: mgreybutton8
+        x:515
+        y:310
+        text: "Clear TextEdit"
+        onClicked:{
+            edit.text = ""
+
+               }
+    }
+
+//    GreyButton {
+//        id: mgreybutton9
+//        x:515
+//        y:350
+//        text: "test"
+//        onClicked:{
+//            edit.text = window.FunctionOPEN();
+//            console.log("ata-ta")
 
 
-
+//               }
+//    }
 
     GreyButton {
         id: mgreybutton1
-        x: 0
-        y: 5
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenterOffset: -350
-        anchors.verticalCenterOffset: -300
+        x:690
+        y:310
         text: "Unzip *.chm"
-        onClicked: window.FunctionPIU()
+        onClicked:{
+            window.FunctionPIU()
+            console.log("ata-ta")
+            //edit.text = window.FunctionOPEN();
 
-    }
+                  }
+               }
 
     GreyButton {
         id: mgreybutton2
-        x: 208
-        y: 169
-        anchors.horizontalCenterOffset: -250
-        anchors.verticalCenterOffset: -300
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        x:690
+        y:350
+        anchors.left: rectangle1.anchors.left
+        anchors.right:rectangle1.anchors.right
         text: "Delete *.htm"
         onClicked:
         window.FunctionPIUPIUPIU()
-
-
-
-
-    }
-
+                }
 
     GreyButton {
         id: mgreybutton3
-        x: 210
-        y: 0
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenterOffset: -150
-        anchors.verticalCenterOffset: -300
+        x:690
+        y:390
+        anchors.left: rectangle1.anchors.left
+        anchors.right:rectangle1.anchors.right
         text: "Save As"
         onClicked:
-         window.savik(textEdit.text);
-
-
-
-    }
-
-
+         window.savik(edit.text);
+                }
 
       GreyButton {
         id: mgreybutton4
-        x: 300
-        y: 5
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenterOffset: -50
-        anchors.verticalCenterOffset: -300
+        x:690
+        y:430
+        anchors.left: rectangle1.anchors.left
+        anchors.right:rectangle1.anchors.right
         text: "Open *.htm"
         onClicked:
-
-        {
-            textEdit.text = window.FunctionMDE();
-               }
-
-
-
-
-
-    }
-
-
+                {
+            edit.text = window.FunctionMDE();
+                }
+                   }
 
       GreyButton {
           id: mgreybutton5
-         // x: 0
-        //  y: 0
-          anchors.horizontalCenter: parent.horizontalCenter
-          anchors.verticalCenter: parent.verticalCenter
-          anchors.horizontalCenterOffset: 50
-          anchors.verticalCenterOffset: -300
+          x:690
+          y:470
+          anchors.left: rectangle1.anchors.left
+          anchors.right:rectangle1.anchors.right
           text: "Exit"
           onClicked:
           {
-
               window.close()
           }
 
-
-
-
-         }
-
+                  }
 
       Rectangle {
           id:textArea
+         //  color: "#FF4E4E4E"
+         color: "white"
+         border.color: "black"
+         border.width: 3
+         radius: 5
+         anchors.left: rectangle1.anchors.left
+         anchors.right:rectangle1.anchors.right
           x: 7
-          y: 51
-          width :484; height:400
-         // property color fontColor: "white"
-          //property alias textContent: textEdit.text
-          Flickable {
-              id: flickArea
-              x: 0
-              y: 0
-              width: parent.width; height: parent.height
-              anchors.rightMargin: 0
-              anchors.bottomMargin: 0
-              anchors.leftMargin: 0
-              anchors.topMargin: 0
-              anchors.fill:parent
-              boundsBehavior: Flickable.StopAtBounds
-              flickableDirection: Flickable.HorizontalFlick
-              interactive: true
-              function ensureVisible(r) {
-                  if (contentX >= r.x)
-                  contentX = r.x;
-                  else if (contentX+width <= r.x+r.width)
-                  contentX = r.x+r.width-width;
-                  if (contentY >= r.y)
-                  contentY = r.y;
-                  else if (contentY+height <= r.y+r.height)
-                  contentY = r.y+r.height-height;
+          y: 1
+          width :484; height:650
+
+          Rectangle {
+              color: "lightblue"
+              anchors.fill: parent
+              anchors.margins: 5
+
+              BorderImage {
+                  id: startHandle
+                  source: "pics/startHandle.sci"
+                  opacity: 0.0
+                  width: 10
+                  x: edit.positionToRectangle(edit.selectionStart).x - flick.contentX-width
+                  y: edit.positionToRectangle(edit.selectionStart).y - flick.contentY
+                  height: edit.positionToRectangle(edit.selectionStart).height
               }
 
-              TextEdit {
-                  id: textEdit
-                  x: 0
-                  y: 0
-                  anchors.fill:parent
-                  width:parent.width; height:parent.height
-                  color:fontColor
-                  anchors.rightMargin: 0
-                  anchors.bottomMargin: 0
-                  anchors.leftMargin: 0
-                  anchors.topMargin: 0
-                  focus: true
-                  wrapMode: TextEdit.Wrap
-                  font.pointSize:10
-                  onCursorRectangleChanged: flickArea.ensureVisible(cursorRectangle)
-                  selectByMouse: true
+              BorderImage {
+                  id: endHandle
+                  source: "pics/endHandle.sci"
+                  opacity: 0.0
+                  width: 10
+                  x: edit.positionToRectangle(edit.selectionEnd).x - flick.contentX
+                  y: edit.positionToRectangle(edit.selectionEnd).y - flick.contentY
+                  height: edit.positionToRectangle(edit.selectionEnd).height
               }
-          }
-      }
 
 
 
+              Flickable {
+                  id: flick
+
+                  anchors.fill: parent
+                  contentWidth: edit.paintedWidth
+                  contentHeight: edit.paintedHeight
+                  interactive: true
+                  clip: true
+
+                  function ensureVisible(r) {
+                      if (contentX >= r.x)
+                          contentX = r.x;
+                      else if (contentX+width <= r.x+r.width)
+                          contentX = r.x+r.width-width;
+                      if (contentY >= r.y)
+                          contentY = r.y;
+                      else if (contentY+height <= r.y+r.height)
+                          contentY = r.y+r.height-height;
+                  }
+
+                  TextEdit {
+                      id: edit
+                      width: flick.width
+                      height: flick.height
+                      focus: true
+                      wrapMode: TextEdit.Wrap
+
+
+                      onCursorRectangleChanged: flick.ensureVisible(cursorRectangle)
+
+                      text: "     <center><h2>ОБУЧЕНИЕ ДЛЯ СЛАБЫХ:</h2>"
+                          +"<p><b><center>ВЫ НЕ ЗНАЕТЕ КАК ЮЗАТЬ СКРОЛЛ?  МЫ ВАС НАУЧИМ!"
+                          +"<p><b><center>ЧТОБЫ ПРОЛИСТАТЬ ДОКУМЕНТ ВНИЗ - ВАМ НАДО ПРОКРУТИТЬ КОЛЕСО МЫШИ НА СЕБЯ."
+                          +"<p><b><center>ЧТОБЫ ПРОЛИСТАТЬ ДОКУМЕНТ ВНИЗ - ВАМ НАДО ПРОКРУТИТЬ КОЛЕСО МЫШИ ОТ СЕБЯ."
+                          +"<p><b><center>ИЛИ ЖЕ ПРОСТО НАЖМИТЕ НА ДОКУМЕНТ И ТАЩИТЕ В НЕОБХОДИМУЮ СТОРОНУ!"
+                          +"<p><b><center>СПАСИБО ЗА ВНИМАНИЕ! (c) 107528"
+                        font.pixelSize: 15
+
+                      MouseArea {
+                          property string drag: ""
+                          property int pressPos
+
+                          x: -startHandle.width
+                          y: 0
+                          width: parent.width+startHandle.width+endHandle.width
+                          height: parent.height
+
+
+
+                          onClicked: {
+                              if (textArea.state == "") {
+                                  edit.cursorPosition = edit.positionAt(mouse.x+x,mouse.y+y);
+                                  if (!edit.focus)
+                                      edit.focus = true;
+                                  edit.openSoftwareInputPanel();
+                              }
+                          }
+
+                          function hitHandle(h,x,y) {
+                              return x>=h.x+flick.contentX && x<h.x+flick.contentX+h.width && y>=h.y+flick.contentY && y<h.y+flick.contentY+h.height
+                          }
+
+//
+
+                          onPositionChanged: {
+                              if (textArea.state == "selection" && drag != "") {
+                                  if (drag == "start") {
+                                      var pos = edit.positionAt(mouse.x+x+startHandle.width/2,mouse.y+y);
+                                      var e = edit.selectionEnd;
+                                      if (e < pos)
+                                          e = pos;
+                                      edit.select(pos,e);
+                                  } else if (drag == "end") {
+                                      var pos = edit.positionAt(mouse.x+x-endHandle.width/2,mouse.y+y);
+                                      var s = edit.selectionStart;
+                                      if (s > pos)
+                                          s = pos;
+                                      edit.select(s,pos);
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+
+
+
+
+                    }
+
+          states: [
+              State {
+                  name: "selection"
+                  PropertyChanges { target: startHandle; opacity: 1.0 }
+                  PropertyChanges { target: endHandle; opacity: 1.0 }
+              },
+              State {
+                  name: "menu"
+                  PropertyChanges { target: startHandle; opacity: 0.5 }
+                  PropertyChanges { target: endHandle; opacity: 0.5 }
+                  PropertyChanges { target: menu; opacity: 1.0 }
+              }
+          ]
+
+            }
 
 // This example illustrates expanding a list item to show a more detailed view.
 //glavnoe okno
-Rectangle {
+    Rectangle {
     id: page
+    x:520
+    y:0
     width: 285; height: 300
     color: "black"
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.verticalCenter: parent.verticalCenter
-    anchors.horizontalCenterOffset: 250
-    anchors.verticalCenterOffset: -165
+//    anchors.horizontalCenter: parent.horizontalCenter
+//    anchors.verticalCenter: parent.verticalCenter
+//    anchors.horizontalCenterOffset: 250
+//    anchors.verticalCenterOffset: -165
 
     // Delegate for the recipes.  This delegate has two modes:
     // 1. List mode (default), which just shows the picture and title of the recipe.
     // 2. Details mode, which also shows the ingredients and method.
-    Component {
+        Component {
         id: recipeDelegate
 
-        Item {
+            Item {
             id: recipe
 
             // Create a property to contain the visibility of the details.
@@ -192,7 +293,7 @@ Rectangle {
             //70
 
             // A simple rounded rectangle for the background
-            Rectangle {
+                 Rectangle {
                 id: background
                 x: 2; y: 2; width: parent.width - x*1; height: parent.height - y*1
                 color: "grey"
@@ -203,7 +304,7 @@ Rectangle {
             // This mouse region covers the entire delegate.
             // When clicked it changes mode to 'Details'.  If we are already
             // in Details mode, then no change will happen.
-            MouseArea {
+                MouseArea {
                 anchors.fill: parent
                 onClicked: recipe.state = 'Details';
             }
@@ -211,7 +312,7 @@ Rectangle {
             // Lay out the page: picture, title and ingredients at the top, and method at the
             // bottom.  Note that elements that should not be visible in the list
             // mode have their opacity set to recipe.detailsOpacity.
-            Row {
+                 Row {
                 id: topLayout
                 x: 10; y: 10; height: recipeImage.height; width: parent.width
                 spacing: 10
@@ -271,13 +372,13 @@ Rectangle {
 
                 Image {
                     anchors { right: flick.right; top: flick.top }
-                    source: "pics/moreUp.png"
+
                     opacity: flick.atYBeginning ? 0 : 1
                 }
 
                 Image {
                     anchors { right: flick.right; bottom: flick.bottom }
-                    source: "pics/moreDown.png"
+
                     opacity: flick.atYEnd ? 0 : 1
                 }
             }
@@ -323,13 +424,8 @@ Rectangle {
         anchors.fill: parent
         model: RecipesModel {}
         delegate: recipeDelegate
+
     }
 }
-
-
-
-
-
-
 
 }

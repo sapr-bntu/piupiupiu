@@ -26,6 +26,7 @@ Rectangle {
         }
 
         TextEdit {
+        //    color:  "red"
             id: textEdit
             x: 0
             y: 0

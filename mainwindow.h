@@ -29,6 +29,7 @@ public:
     Q_INVOKABLE QString load(const QString &f);
     Q_INVOKABLE void saveFile(const QString &fileName);  //save *.htm files
     Q_INVOKABLE void savik(const QString &piu1); //save
+    Q_INVOKABLE QString FunctionOPEN(); // illustrate the first htm file on textedit
 
 private:
     QDeclarativeView *ui;

@@ -23,8 +23,7 @@ bool zip::unzip(QString filename)
     if (zipfile.exists())
     {
 
-        QString program = "./tmp/7z -y x " +filename; // ..\7z x ..\ClientHelp.chm
-      //  qDebug()<<"z"<<program;
+        QString program = "./tmp/7z -y x -o./TEMP " +filename;
         QProcess *zipProcess = new QProcess();
         zipProcess->start(program);
         zipProcess->waitForFinished();

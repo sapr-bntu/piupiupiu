@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Wed 9. May 21:52:04 2012
+** Created: Fri 18. May 02:16:44 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,6 +38,7 @@ static const uint qt_meta_data_MainWindow[] = {
       87,   85,   26,   11, 0x02,
      110,  101,   11,   11, 0x02,
      133,  128,   11,   11, 0x02,
+     148,   11,   26,   11, 0x02,
 
        0        // eod
 };
@@ -47,6 +48,7 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "FunctionPIUPIU()\0FunctionPIUPIUPIU()\0"
     "FunctionMDE()\0f\0load(QString)\0fileName\0"
     "saveFile(QString)\0piu1\0savik(QString)\0"
+    "FunctionOPEN()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -65,6 +67,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
         case 5: _t->saveFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 6: _t->savik((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 7: { QString _r = _t->FunctionOPEN();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
         default: ;
         }
     }
@@ -102,9 +106,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }
