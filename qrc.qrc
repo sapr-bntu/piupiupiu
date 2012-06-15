@@ -14,7 +14,5 @@
         <file>qml/QMLLab/RecipesModel.qml</file>
         <file>qml/QMLLab/Scroll.qml</file>
         <file>qml/QMLLab/TextButton.qml</file>
-        <file>7z.dll</file>
-        <file>7z.exe</file>
     </qresource>
 </RCC>

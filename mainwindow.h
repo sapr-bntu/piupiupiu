@@ -8,6 +8,15 @@
 #include <QtGui>
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
+#include <QFileSystemModel>
+#include <QTreeView>
+#include <QTreeWidget>
+#include <QDirModel>
+#include <QListView>
+#include <QSortFilterProxyModel>
+#include <QDir>
+#include <QFileDialog>
+#include <QStringList>
 
 namespace Ui {
     class MainWindow;
@@ -30,9 +39,10 @@ public:
     Q_INVOKABLE void saveFile(const QString &fileName);  //save *.htm files
     Q_INVOKABLE void savik(const QString &piu1); //save
     Q_INVOKABLE QString FunctionOPEN(); // illustrate the first htm file on textedit
-    Q_INVOKABLE  QString title(QString filename);
-    Q_INVOKABLE QString WhereYourGodNow();
-    Q_INVOKABLE QString la();
+    Q_INVOKABLE  QString title(QString filePath);
+    Q_INVOKABLE QString WhereFile(QString filePath);
+    Q_INVOKABLE QString la(QString str);
+   Q_INVOKABLE  bool readFile(const QString &fileName);
 
 
 public slots:

@@ -8,59 +8,124 @@ Rectangle {
     height: 640
     color: "#FF4E4E4E"
 
-   Item
-  {
-      id: rectListView
-      width: 285
-      height: 120
-      x: 500
-      y: 510
-    //  border.color: "black"
-    //  border.width: 2
-    //  color: "lightblue"
+
+    Item
+    {
+        id: itemForList
+        width: 484
+        height: 120
+        x: 5
+        y: 510
+
+      /*  ListView {
+            width: 484
+            height: 120
+            id: listViewPath
+            anchors.fill: parent
+            model: FileModel {}
+            delegate: Rectangle
+            {
+
+            color: "lightblue"
+            width: 484; height: 25
+            Text {
+                id: textItem
+                anchors.centerIn: parent
+               // font.pointSize: 10
+
+                text: number+'. ' + name
+            //  text: filePath
+            }
+
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                onDoubleClicked: {
+
+                   listViewPath.currentIndex=number-1
 
 
-      ListView {
-          id: listViewTree
-          width: 285
-          height: 120
+                   // edit.text = window.la(listViewPath.model.get(listViewPath.currentIndex).location)
+                  //  edit.text = window.la();
+                  //  window.la(edit.text);
+                  //  window.load(edit.text);
+                 //   window.WhereFile(edit.text);
 
-         anchors.fill: parent
+                   edit555.text = window.WhereFile(edit555.text)
 
-          model: VisualDataModel {
-              model: dirModel
-
-              delegate: Rectangle {
-
-                  color: "lightblue"
-                  width: 285; height: 25
-                  Text { text: filePath }
-
-                  MouseArea {
-                      anchors.fill: parent
-                      onClicked: {
-                          if (model.hasModelChildren)
-                              listViewTree.model.rootIndex = listViewTree.model.modelIndex(index)
+                    console.log("reading");
 
 
-                          else
-                          {
-                              console.log(filePath);
-                       //   edit.text = window.WhereYourGodNow()
-                           //   window.la(edit.text);
-                           //   edit.text = window.la();
-                          }
+                }
+                onClicked: {
+
+                    listViewPath.currentIndex=number-1
+                }
+            }
+
+        }
+                //contactDelegate
+            highlight: Rectangle { color: "lime"; radius: 5 }
+
+
+        }*/
+
+
+    ListView {
+        id: listViewTree
+        width: 285
+        height: 120
+        x: 1000
+        y: 510
+
+       anchors.fill: parent
+
+        model: VisualDataModel {
+            model: dirModel
+           // Path: "D:/"
+
+            delegate: Rectangle {
+
+                color: "lightblue"
+                width: 285; height: 25
+                Text { text: filePath }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        if (model.hasModelChildren)
+                            listViewTree.model.rootIndex = listViewTree.model.modelIndex(index)
+                        else
+                        {
+                            console.log(filePath);
+                            console.log("test");
+
+//                            parent.
+                            edit555.text = window.WhereFile(filePath);
+
+
+                         //   edit.text = window.la();
+                        //listViewPath.model.append({"number": window.kol(listViewPath.model.count), "name":window.title(filePath),"location":filePath})
+                          //  edit.text = window.WhereFile(edit.text)
+
+
+                        }
 
 
 
-                      }
-                  }
-              }
-          }
-      }
+                    }
+                }
+            }
+        }
+    }
+    }
 
 
-  }
+
+
+
+
+
 
 
 
@@ -71,22 +136,29 @@ Rectangle {
         y:310
         text: "Clear TextEdit"
         onClicked:{
-            edit.text = ""
+            edit555.text = ""
+
+
+         listViewTree.model.setRootPath(dir);
+      //listViewTree.model.index("D:/107528");
 
                }
     }
 
 
 
+
     GreyButton {
-        id: mgreybutton1
+        id: unzipbutton
         x:690
         y:310
         text: "Unzip *.chm"
         onClicked:{
             window.FunctionPIU()
+
             console.log("ata-ta")
-            edit.text = window.FunctionOPEN()
+          //  edit555.text = window.FunctionOPEN()
+          //  model.index("D:/107528");
 
                   }
                }
@@ -100,7 +172,9 @@ Rectangle {
         text: "Delete *.htm"
         onClicked:
         window.FunctionPIUPIUPIU()
-                }
+
+
+                        }
 
     GreyButton {
         id: mgreybutton3
@@ -110,7 +184,7 @@ Rectangle {
         anchors.right:rectangle1.anchors.right
         text: "Save As"
         onClicked:
-         window.savik(edit.text);
+         window.savik(edit555.text);
                 }
 
       GreyButton {
@@ -122,7 +196,7 @@ Rectangle {
         text: "Open *.htm"
         onClicked:
                 {
-            edit.text = window.FunctionMDE();
+            edit555.text = window.FunctionMDE();
                 }
                    }
 
@@ -152,7 +226,7 @@ Rectangle {
          anchors.right:rectangle1.anchors.right
           x: 7
           y: 1
-          width :484; height:650
+          width :484; height:480 //650
 
           Rectangle {
               color: "lightblue"
@@ -164,9 +238,9 @@ Rectangle {
                   source: "../../pics/startHandle.sci"
                   opacity: 0.0
                   width: 10
-                  x: edit.positionToRectangle(edit.selectionStart).x - flick.contentX-width
-                  y: edit.positionToRectangle(edit.selectionStart).y - flick.contentY
-                  height: edit.positionToRectangle(edit.selectionStart).height
+                  x: edit555.positionToRectangle(edit555.selectionStart).x - flick.contentX-width
+                  y: edit555.positionToRectangle(edit555.selectionStart).y - flick.contentY
+                  height: edit555.positionToRectangle(edit555.selectionStart).height
               }
 
               BorderImage {
@@ -174,9 +248,9 @@ Rectangle {
                   source: "../../pics/endHandle.sci"
                   opacity: 0.0
                   width: 10
-                  x: edit.positionToRectangle(edit.selectionEnd).x - flick.contentX
-                  y: edit.positionToRectangle(edit.selectionEnd).y - flick.contentY
-                  height: edit.positionToRectangle(edit.selectionEnd).height
+                  x: edit555.positionToRectangle(edit555.selectionEnd).x - flick.contentX
+                  y: edit555.positionToRectangle(edit555.selectionEnd).y - flick.contentY
+                  height: edit555.positionToRectangle(edit555.selectionEnd).height
               }
 
 
@@ -185,8 +259,8 @@ Rectangle {
                   id: flick
 
                   anchors.fill: parent
-                  contentWidth: edit.paintedWidth
-                  contentHeight: edit.paintedHeight
+                  contentWidth: edit555.paintedWidth
+                  contentHeight: edit555.paintedHeight
                   interactive: true
                   clip: true
 
@@ -202,7 +276,7 @@ Rectangle {
                   }
 
                   TextEdit {
-                      id: edit
+                      id: edit555
                       width: flick.width
                       height: flick.height
                       focus: true
@@ -232,10 +306,10 @@ Rectangle {
 
                           onClicked: {
                               if (textArea.state == "") {
-                                  edit.cursorPosition = edit.positionAt(mouse.x+x,mouse.y+y);
-                                  if (!edit.focus)
-                                      edit.focus = true;
-                                  edit.openSoftwareInputPanel();
+                                  edit555.cursorPosition = edit555.positionAt(mouse.x+x,mouse.y+y);
+                                  if (!edit555.focus)
+                                      edit555.focus = true;
+                                  edit555.openSoftwareInputPanel();
                               }
                           }
 
@@ -248,17 +322,17 @@ Rectangle {
                           onPositionChanged: {
                               if (textArea.state == "selection" && drag != "") {
                                   if (drag == "start") {
-                                      var pos = edit.positionAt(mouse.x+x+startHandle.width/2,mouse.y+y);
-                                      var e = edit.selectionEnd;
+                                      var pos = edit555.positionAt(mouse.x+x+startHandle.width/2,mouse.y+y);
+                                      var e = edit555.selectionEnd;
                                       if (e < pos)
                                           e = pos;
-                                      edit.select(pos,e);
+                                      edit555.select(pos,e);
                                   } else if (drag == "end") {
-                                      var pos = edit.positionAt(mouse.x+x-endHandle.width/2,mouse.y+y);
-                                      var s = edit.selectionStart;
+                                      var pos = edit555.positionAt(mouse.x+x-endHandle.width/2,mouse.y+y);
+                                      var s = edit555.selectionStart;
                                       if (s > pos)
                                           s = pos;
-                                      edit.select(s,pos);
+                                      edit555.select(s,pos);
                                   }
                               }
                           }

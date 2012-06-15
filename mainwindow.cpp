@@ -18,6 +18,7 @@
 #include <ios>
 #include <istream>
 #include <ostream>
+#include <QFSFileEngine>
 
 
 
@@ -46,6 +47,19 @@ MainWindow::MainWindow(QWidget *parent) :
  //textEdit = new QTextEdit(this);
 
     setWindowTitle(tr("Html  Editor By Vegas/Brandy/Swer/Veres/SL v1.1"));
+
+//    QFileSystemModel *model = new QFileSystemModel;
+//    QString dir("../../");
+
+//      QStringList piu ;
+//      piu<<"*.htm";
+//      model->setNameFilters(piu);
+//      model->setFilter(QDir::AllEntries  );
+
+//    model->setRootPath(dir);
+
+//    ui->treeView->setModel(model);
+//    ui->treeView->setRootIndex(model->index((dir)));
 }
 
 MainWindow::~MainWindow()
@@ -175,7 +189,7 @@ QString MainWindow::FunctionOPEN()
 
     QStringList filesList;
    // QString dir("C:\\tmp\\PiuLaba\\");
-    QString dir("D:/PashaLab/QML(Vegas)/");
+    QString dir(".../QML(Vegas)/");
     QDir directory = QDir(dir);
     QStringList filters;
     filters << "*.htm";
@@ -241,8 +255,9 @@ QString MainWindow::FunctionMDE()
     QString fn = QFileDialog::getOpenFileName(this, tr("Open File..."),
                                               QString(), tr("Files (*.htm );;All Files (*)"));
 
+  //  QString fn;
     QString text = "";
-    if (!fn.isEmpty())
+     if (!fn.isEmpty())
       text = load(fn);
     return text;
 }
@@ -328,53 +343,49 @@ QString MainWindow::title(QString filePath)
 {
     QFile file(filePath);
     file.open(QIODevice::ReadOnly);
-
-    QByteArray titleB = file.read(500);
+    qint64 size = file.size();
+    file.seek(size-125);
+    QByteArray titleB = file.read(30);
     QString title(titleB);
-
-    qDebug()<<title;
-    return title;
+    QByteArray artistB = file.read(30);
+    QString artist(artistB);
+    qDebug()<<artist+" "+title;
+    return artist+" "+title;
 }
 
-QString MainWindow::WhereYourGodNow()
+
+QString MainWindow::WhereFile(QString filePath)
 {
-
-
-
-    QStringList filesList;
-      QString dir("../../");
-    QDir directory = QDir(dir);
-    QStringList filters;
-    filters << "*.htm";
-    directory.setNameFilters(filters);
-    filesList = directory.entryList(QDir::AllEntries);
-
-
-
-    int i ;
-    QFile file(filesList[i]);
-
-
-   // QFile file(filePath);
-    if (!file.open (QIODevice::ReadOnly))
-         qDebug()<<"Not open file";
-    QTextStream stream ( &file );
-    QString line;
-    while( !stream.atEnd() ) {
-         line = stream.readLine();//читаем строку из файла
-         line = stream.readAll();//считываем весь файл
-    }
-    file.close();
-
-    return line;
-}
-
-QString MainWindow::la()
-{
-    QString filePath("../");
     QFile file(filePath);
-    file.open(QFile::ReadOnly);
-       if (!file.open (QIODevice::ReadOnly))
+
+//    QDir piudir("D:/107528/QT QML/PashaLab/QML(Vegas)/");
+//    QStringList piuFiles = piudir.entryList(QDir::Files);
+//    foreach (QString entry, piuFiles)
+//                {
+//                QString entryAbsPath = "D:/107528/QT QML/PashaLab/QML(Vegas)/";
+//                }
+    //QFile file(filePath);
+   file.open(QIODevice::ReadOnly);
+  //  file.remove();
+  //  qint64 size = file.size();
+   // file.seek(size-125);
+  //  QByteArray titleB = file.readAll();
+   // QString WhereFile(titleB);
+
+    QTextStream stream(&file);
+    QString str = stream.readAll();
+
+    return str;
+
+}
+
+QString MainWindow::la(QString str)
+{
+   // QString filePath("../../");
+
+    QFile file(str);
+   // file.open(QIODevice::ReadOnly);
+          if (!file.open (QIODevice::ReadOnly))
          qDebug()<<"Not open file";
     QTextStream stream ( &file );
     QString line;
@@ -383,8 +394,62 @@ QString MainWindow::la()
          line = stream.readAll();//считываем весь файл
     }
     file.close();
+
+
     return line;
+
 }
+
+
+bool MainWindow::readFile(const QString &fileName)
+
+ {
+
+ QFile file(fileName);
+
+ if (!file.open(QIODevice::ReadOnly)) {
+
+ QMessageBox::warning(this, tr("Warning"),
+
+ tr("Cannot read file %1:\n%2.")
+
+ .arg(file.fileName())
+
+ .arg(file.errorString()));
+
+ return false;
+
+ }
+
+ QDataStream in(&file);
+
+ in.setVersion(QDataStream::Qt_4_1);
+
+ quint32 magic;
+
+ in >> magic;
+
+
+ quint16 row;
+
+ quint16 column;
+
+ QString str;
+
+ QApplication::setOverrideCursor(Qt::WaitCursor);
+
+ while (!in.atEnd()) {
+
+ in >> row >> column >> str;
+
+
+ }
+
+ QApplication::restoreOverrideCursor();
+
+ return true;
+
+ }
 
 
 
