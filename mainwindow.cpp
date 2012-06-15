@@ -14,6 +14,8 @@
 #include  <QDeclarativeView>
 #include <QFile>
 #include <QTextCodec>
+//gfhfgh
+//fdfdgh/lalala
 
 
 
