@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import Qt 4.7
 import "Controls"
+//cdvfgh
 
 Rectangle {
     id: rectangle1
@@ -16,17 +17,7 @@ Rectangle {
        scale: 0.4
             }
 
-//    IconButtonU {
-//            id:iconButtU
-//            x:500
-//            y:310
-//                 }
 
-//    IconButtonD {
-//            id:iconButtD
-//            x:500
-//            y:420
-//                 }
 
     GreyButton {
         id: mgreybutton8

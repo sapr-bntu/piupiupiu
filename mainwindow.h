@@ -8,6 +8,7 @@
 #include <QtGui>
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
+//piu
 
 namespace Ui {
     class MainWindow;

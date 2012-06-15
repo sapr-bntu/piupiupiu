@@ -1,4 +1,5 @@
 import QtQuick 1.0
+//p
 
 Rectangle {
     property alias text: textElement.text

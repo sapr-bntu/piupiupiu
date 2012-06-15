@@ -4,7 +4,8 @@
 #include <QDeclarativeEngine>
 #include <QTextCodec>
 
-#include "treemodel.h"
+//ghgh
+
 
 int main(int argc, char *argv[])
 {

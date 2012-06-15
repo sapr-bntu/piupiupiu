@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui declarative
+QT       += core gui declarative sql
 
 symbian: {
     qmlfiles.sources = qml/qtquicktest/*.qml
