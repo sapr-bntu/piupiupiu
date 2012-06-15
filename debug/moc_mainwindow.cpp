@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Wed 13. Jun 00:10:43 2012
+** Created: Thu 14. Jun 15:44:55 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,8 +43,9 @@ static const uint qt_meta_data_MainWindow[] = {
      148,  143,   11,   11, 0x02,
      163,   11,   41,   11, 0x02,
      187,  178,   41,   11, 0x02,
-     202,   11,   41,   11, 0x02,
-     220,   11,   41,   11, 0x02,
+     202,  178,   41,   11, 0x02,
+     225,  221,   41,   11, 0x02,
+     242,  116,  237,   11, 0x02,
 
        0        // eod
 };
@@ -54,8 +55,9 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "QString\0FunctionPIUPIU()\0FunctionPIUPIUPIU()\0"
     "FunctionMDE()\0f\0load(QString)\0fileName\0"
     "saveFile(QString)\0piu1\0savik(QString)\0"
-    "FunctionOPEN()\0filename\0title(QString)\0"
-    "WhereYourGodNow()\0la()\0"
+    "FunctionOPEN()\0filePath\0title(QString)\0"
+    "WhereFile(QString)\0str\0la(QString)\0"
+    "bool\0readFile(QString)\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -80,10 +82,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
         case 9: { QString _r = _t->title((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 10: { QString _r = _t->WhereYourGodNow();
+        case 10: { QString _r = _t->WhereFile((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
-        case 11: { QString _r = _t->la();
+        case 11: { QString _r = _t->la((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        case 12: { bool _r = _t->readFile((*reinterpret_cast< const QString(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         default: ;
         }
     }
@@ -121,9 +125,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }
